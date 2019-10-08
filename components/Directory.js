@@ -30,9 +30,6 @@ const makeListRenderer = (
       ? groupedContacts
       : groupedContacts.filter(({ id }) => state[id])
 
-    console.log('DEBUG::\n\n\ngroupedContacts\n', groupedContacts)
-    console.log('DEBUG::\n\n\nfilteredContacts\n', filteredContacts)
-
     return (
       <div key={groupId}>
         <List
@@ -72,7 +69,9 @@ export default function Directory({ contacts, groups }) {
   const renderContacts = renderList(false)
   const renderFavorites = renderList(true)
 
-  console.log('DEBUG::\n\n\nstate\n', state)
+  console.group('%c Favorites! ', 'background: #222; color: #bada55')
+  console.log('Contact ID : isFavorite ', '==> ', state, '\n\n')
+  console.groupEnd()
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
